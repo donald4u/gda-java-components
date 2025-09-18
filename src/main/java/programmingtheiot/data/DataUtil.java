@@ -61,7 +61,17 @@ public class DataUtil
 		return null;
 	}
 	
+	public String actuatorDataToTimeAndValueJson(ActuatorData actuatorData)
+	{
+		return null;
+	}
+	
 	public String sensorDataToJson(SensorData sensorData)
+	{
+		return null;
+	}
+	
+	public String sensorDataToTimeAndValueJson(SensorData sensorData)
 	{
 		return null;
 	}
