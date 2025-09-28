@@ -8,7 +8,6 @@
  * provided within in order to meet the needs of your specific
  * Programming the Internet of Things project.
  */
-
 package programmingtheiot.gda.system;
 
 import java.util.logging.Logger;
@@ -16,7 +15,7 @@ import java.util.logging.Logger;
 import programmingtheiot.common.ConfigConst;
 
 /**
- *
+ * Base class for system utilization tasks.
  */
 public abstract class BaseSystemUtilTask
 {
@@ -26,41 +25,58 @@ public abstract class BaseSystemUtilTask
 		Logger.getLogger(BaseSystemUtilTask.class.getName());
 	
 	
-	// private
+	// private var's
 	
-	private String name   = ConfigConst.NOT_SET;
-	private int    typeID = ConfigConst.DEFAULT_TYPE_ID;
+	private String name = ConfigConst.NOT_SET;
+	private int typeID = ConfigConst.DEFAULT_TYPE_ID;
 	
 	// constructors
 	
+	/**
+	 * Constructor that accepts name and typeID parameters.
+	 * 
+	 * @param name The name of the task
+	 * @param typeID The type ID of the task
+	 */
 	public BaseSystemUtilTask(String name, int typeID)
 	{
 		super();
+		
+		if (name != null) {
+			this.name = name;
+		}
+		
+		this.typeID = typeID;
 	}
 	
 	
 	// public methods
 	
+	/**
+	 * Returns the name of the system utilization task.
+	 * 
+	 * @return String The name of the task
+	 */
 	public String getName()
 	{
-		return null;
+		return this.name;
 	}
 	
 	/**
 	 * Returns the type ID of the system utilization task.
 	 * 
-	 * @return int
+	 * @return int The type ID of the task
 	 */
 	public int getTypeID()
 	{
-		return 0;
+		return this.typeID;
 	}
 	
 	/**
 	 * Template method definition. Sub-class will implement this to retrieve
 	 * the system utilization measure.
 	 * 
-	 * @return float
+	 * @return float The telemetry value
 	 */
 	public abstract float getTelemetryValue();
 	
